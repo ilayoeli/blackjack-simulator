@@ -131,5 +131,6 @@ def run_comparison_simulation():
     print(f"{'Risk of Ruin %':<20} | {basic_ror:>14.1f}% | {count_12_ror:>19.1f}% | {count_7_ror:>19.1f}%")
     print(f"{'Avg Final Balance':<20} | ${avg_basic:>13,.0f} | ${avg_c12:>18,.0f} | ${avg_c7:>18,.0f}")
     print("=" * 85 + "\n")
+
 if __name__ == "__main__":
     main()
