@@ -39,7 +39,7 @@ The `CardCounter` calculates the **True Count** by dividing the running count by
 ## 💻 Installation & Usage
 1.  **Clone the repository:**
     ```bash
-    git clone [https://github.com/yourusername/blackjack-simulator.git](https://github.com/yourusername/blackjack-simulator.git)
+    git clone [https://github.com/ilayoeli/blackjack-simulator.git](https://github.com/ilayoeli/blackjack-simulator.git)
     cd blackjack-simulator
     ```
 2.  **Run the simulation:**
