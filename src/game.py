@@ -1,6 +1,6 @@
-from player import Player
-from deck import Deck
-from game_round import GameRound
+from .player import Player
+from .deck import Deck
+from .game_round import GameRound
 
 class Game:
     def __init__(self, balance: int, num_decks: int = 1):
@@ -35,6 +35,7 @@ class Game:
                 round_game = GameRound(self.deck, self.player, bet)
                 winnings = round_game.play()
                 self.player.win(winnings)
+            print(f"Balance: ${self.player.balance}")
 
         earnings = self.player.get_earnings()
         print(f"\nFinal balance: ${self.player.balance}")

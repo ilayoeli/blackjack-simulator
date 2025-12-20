@@ -1,5 +1,6 @@
 
-from hand import Hand
+from .hand import Hand
+import time
 class Player:
 
     def __init__(self, balance: int):
@@ -31,6 +32,7 @@ class Player:
             actions = self._get_valid_actions(hand, bet) 
             
             while True:
+                time.sleep(1.0)
                 choice = input(f"Choose {actions}: ").lower()
                 if choice in actions:
                     return choice
@@ -47,3 +49,6 @@ class Player:
                     actions.append('split')
         
         return actions
+    
+  
+        

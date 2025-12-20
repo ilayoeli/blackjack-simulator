@@ -1,8 +1,8 @@
-from deck import Deck
-from hand import Hand
-from card import Card
-from player import Player
-from card_counter import CardCounter
+from .deck import Deck
+from .hand import Hand
+from .card import Card
+from .player import Player
+from .card_counter import CardCounter
 import time
 
 class GameRound:
@@ -146,13 +146,20 @@ class GameRound:
             return None  # Signal that split is complete
         
         else:
-            # Normal split - deal one card and play each hand
+        # Normal split 
+        # 1. Create hands and add the first card from the pair
+            hand1 = Hand()
+            hand1.add_card(hand.cards[0])
+            hand2 = Hand()
+            hand2.add_card(hand.cards[1])
+    
             hand1.add_card(self._deal_and_record())
             hand2.add_card(self._deal_and_record())
             
             self._log("\n--- First split hand ---")
             self._log(f"Starting hand: {hand1}")
             result1 = self.play_hand(hand1, bet)
+
             if result1 is not None:
                 # If it returns a tuple, it's a regular hand or another split
                 if isinstance(result1, tuple):
@@ -225,4 +232,5 @@ class GameRound:
     def _log(self, message: str):
         """Helper to self._log only if not in silent mode"""
         if not self.silent:
+            time.sleep(1.0)
             print(message)

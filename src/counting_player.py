@@ -1,5 +1,5 @@
-from strategy_player import StrategyPlayer
-from card_counter import CardCounter
+from .strategy_player import StrategyPlayer
+from .card_counter import CardCounter
 
 class CountingPlayer(StrategyPlayer):
     def __init__(self,balance, strategy, counter: CardCounter, betting_spread: dict ,min_bet=10):

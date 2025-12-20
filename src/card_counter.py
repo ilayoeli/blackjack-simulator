@@ -1,6 +1,3 @@
-from card import Card
-import math
-
 class CardCounter:
 
     def __init__(self, num_decks: int):

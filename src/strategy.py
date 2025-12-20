@@ -1,5 +1,5 @@
-from hand import Hand
-from card import Card
+from .hand import Hand
+from .card import Card
 
 class Strategy:
     def __init__(self):

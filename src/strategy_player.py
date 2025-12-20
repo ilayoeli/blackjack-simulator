@@ -1,6 +1,6 @@
-from player import Player
-from hand import Hand
-from strategy import Strategy
+from .player import Player
+from .hand import Hand
+from .strategy import Strategy
 
 
 
@@ -11,13 +11,12 @@ class StrategyPlayer(Player):
     def __init__(self, balance: int, strategy: Strategy):
         super().__init__(balance)
         self.strategy = strategy 
-        print("Strategy")
 
     
     def get_action(self, hand: Hand, dealer_up_card_rank: str, bet: int) -> str:
         valid_actions = self._get_valid_actions(hand,bet)
 
-        can_bet_options = 'double' in valid_actions
+        can_bet_options = 'double' in valid_actions or 'split' in valid_actions
 
         startegy_action = self.strategy.get_action(hand, dealer_up_card_rank, can_bet_options)
 
@@ -33,3 +32,5 @@ class StrategyPlayer(Player):
                 return fallback_action
             
         return 'stand' #Safety
+    
+

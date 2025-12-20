@@ -1,5 +1,5 @@
-from hand import Hand
-from strategy import Strategy
+from .hand import Hand
+from .strategy import Strategy
 
 class BasicStrategy(Strategy):
 
@@ -97,12 +97,18 @@ class BasicStrategy(Strategy):
           if can_split_or_double and hand.is_pair(): 
                return self.pairs[self._normalize_rank(hand.cards[0].rank)][dealer_up_card_rank]
           
-               
+          
           if hand.is_soft_hand():
                #Soft hand
+               #Address the possibilt of can't split aces
+               if hand.get_value() == 12:
+                    return 'hit'
                action = self.soft_totals[hand.get_value()][dealer_up_card_rank]
           
           else:
+               #Address the possibility of can't split 2's
+               if hand.get_value() == 4:
+                    return 'hit'
                action = self.hard_totals[hand.get_value()][dealer_up_card_rank]
 
           if action == 'double' and not can_split_or_double:
